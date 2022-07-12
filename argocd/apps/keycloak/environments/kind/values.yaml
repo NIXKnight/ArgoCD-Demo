@@ -1,0 +1,16 @@
+---
+keycloak:
+  commonAnnotations:
+    avp.kubernetes.io/path: "kv_secrets/data/apps/keycloak"
+  auth:
+    adminUser: "admin"
+    adminPassword: <admin_password>
+  ingress:
+    enabled: true
+    tls: true
+    ingressClassName: nginx
+    hostname: keycloak.local.nixknight.pk
+    annotations:
+      cert-manager.io/cluster-issuer: selfsigned-issuer
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"

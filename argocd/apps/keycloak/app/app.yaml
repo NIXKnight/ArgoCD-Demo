@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argoproj
+  labels:
+    deploymentStrategy: argocd-vault-plugin-helm
+spec:
+  project: default
+  source:
+    path: argocd/apps/keycloak
+    repoURL: git@github.com:NIXKnight/ArgoCD-Demo.git
+    targetRevision: master
+  destination:
+    namespace: keycloak
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

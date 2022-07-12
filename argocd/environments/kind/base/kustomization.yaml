@@ -10,6 +10,7 @@ bases:
   # - ../../../apps/metrics-server/app
   # - ../../../apps/mariadb/app
   - ../../../apps/vault/app
+  # - ../../../apps/keycloak/app
   # - ../../../apps/vault-bootstrap/environments/kind/app
   # - ../../../apps/tekton-pipeline/app
   # - ../../../apps/tekton-dashboard/app
@@ -116,4 +117,4 @@ patches:
           namespace: argoproj
         spec:
           source:
-            targetRevision: master
+            targetRevision: NIXKnight/keycloak
